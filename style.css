@@ -1,14 +1,311 @@
 @import './reset.css';
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 
+:root {
+  --deep-blue-sea: #013a63;
+  --ocean-blue: #4682b4;
+  --pirate-gold: #ffd700;
+  --classic-parchment: #f5f5ec;
+  --dark-text: #333333;
+  --light-text: #f5f5dc;
+}
+
+* {
+  z-index: 2;
+}
+
 body {
   font-family: 'SUSE', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
     sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 1rem 4rem;
+  background-image: url('./bg.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--pirate-gold);
+  position: relative;
+  letter-spacing: 1px;
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, rgba(1, 58, 99, 0.9), var(--classic-parchment));
+  z-index: 1;
+}
+
+header,
+footer {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  margin: auto;
+  flex: 1;
+}
+
+main > div {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+main small {
+  text-align: justify;
+}
+
+article {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-right: 20px;
+  flex: 1;
+}
+
+aside {
+  justify-self: end;
+  background-color: var(--deep-blue-sea);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 1px 3px 6px var(--deep-blue-sea);
+  height: fit-content;
+  position: sticky;
+  top: 5%;
+}
+
+.btn-container {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+}
+
+aside button {
+  border: none;
+  color: var(--deep-blue-sea);
+  background-color: var(--pirate-gold);
+  border-radius: 5px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+aside button:hover {
+  filter: brightness(1.1);
+}
+
+header > h1 {
+  font-size: 50px;
+  text-shadow: 3px 6px 10px var(--deep-blue-sea);
+}
+header > p {
+  font-size: 25px;
+  text-shadow: 2px 4px 6px var(--deep-blue-sea);
+}
+
+section p {
+  text-shadow: 1px 2px 5px var(--deep-blue-sea);
+  color: var(--classic-parchment);
+  line-height: 2rem;
+}
+
+a {
+  color: var(--ocean-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.4s ease;
+}
+
+a:hover {
+  font-weight: 800;
+  color: var(--deep-blue-sea);
+}
+
+footer {
+  color: var(--dark-text);
+  justify-content: end;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  color: var(--deep-blue-sea);
+  background-color: var(--classic-parchment);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 1px 3px 6px var(--deep-blue-sea);
+  opacity: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.card.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+form div {
+  margin: 16px 0;
+}
+
+legend {
+  display: flex;
+  font-size: larger;
+  align-items: center;
+  justify-content: start;
+  gap: 30px;
+  font-weight: 700;
+}
+
+legend i {
+  rotate: 10deg;
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+input {
+  background-color: var(--classic-parchment);
+  border-radius: 5px;
+  border: none;
+  padding: 2px 5px;
+  transition: transform 0.5s ease;
+  display: block;
+  width: 200px;
+}
+
+input:focus {
+  transform: scale(1.05);
+  outline: none;
+  background-color: var(--pirate-gold);
+}
+
+.card > h3 {
+  font-size: medium;
+  font-weight: 900;
+  text-overflow: ellipsis;
+}
+
+.card > h5 {
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 14px;
+  margin: 2px 0;
+  color: var(--ocean-blue);
+}
+
+.card > div > p {
+  font-style: italic;
+  font-size: 12px;
+}
+
+.card .icons {
+  align-self: end;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.card i {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.card i:active {
+  transform: scale(0.95);
+}
+
+.card i:hover {
+  color: var(--ocean-blue);
+}
+
+.icon-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container i {
+  font-size: 20px;
+  animation: float-scale-rotate 6s infinite ease-in-out;
+  position: relative;
+}
+
+@keyframes float-scale-rotate {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg) translate(0, 0);
+  }
+  25% {
+    transform: scale(1.1) rotate(5deg) translate(2px, -5px);
+  }
+  50% {
+    transform: scale(1) rotate(0deg) translate(-2px, 5px);
+  }
+  75% {
+    transform: scale(1.1) rotate(-5deg) translate(2px, -5px);
+  }
+}
+
+.icon-container::before,
+.icon-container::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: gold;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sprinkle 6s infinite ease-in-out;
+}
+
+@keyframes sprinkle {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  25% {
+    transform: translate(20px, -20px);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-15px, 25px);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(30px, -30px);
+    opacity: 1;
+  }
+}
+
+.icon-container::before {
+  top: 50%;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.icon-container::after {
+  top: 50%;
+  left: 50%;
+  animation-delay: 1s;
 }
