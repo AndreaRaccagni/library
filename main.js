@@ -4,6 +4,8 @@ const form = document.querySelector('form');
 const btnSubmit = document.querySelector('button[type="submit"]');
 const btnReset = document.querySelector('button[type="reset"]');
 const article = document.querySelector('article');
+const addBtn = document.querySelector('.add-book-btn');
+const aside = document.querySelector('aside');
 
 let id = 0;
 
@@ -12,6 +14,10 @@ window.addEventListener('DOMContentLoaded', () => {
   books.forEach((book) => {
     createCard(book);
   });
+});
+
+addBtn.addEventListener('click', () => {
+  aside.classList.toggle('hide');
 });
 
 btnSubmit.addEventListener('click', (e) => {
