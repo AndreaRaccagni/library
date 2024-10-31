@@ -42,6 +42,7 @@
       this.age_range = age_range;
       this.favorite = favorite;
       this.read = false;
+      this.id = null;
     }
   }
 
